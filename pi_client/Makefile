@@ -1,12 +1,14 @@
 CROSS_COMPILE ?=
 
-CC = $(CROSS_COMPILE)gcc
-CFLAGS = -Wall -Wextra -Werror -Wfatal-errors -I ../include -std=gnu99
+CC = $(CROSS_COMPILE)g++
+CFLAGS = -Wall -Wextra -Werror -Wfatal-errors -I ../include  
+#-std=c++11
+# -std=gnu99
 
 LDFLAGS = -ltinyalsa -lpthread 
 
 EXEC=pi_main
-OBJS=main.o wav_client.o wav_server.o state_client.o rpi_gpio.o pcm_io.o
+OBJS=main.o wav_client.o wav_server.o state_client.o rpi_gpio.o pcm_io.o log4z.o
 
 all: $(EXEC)
 
@@ -29,6 +31,9 @@ rpi_gpio.o: rpi_gpio.c
 	$(CC) $(CFLAGS) -c $^
 
 pcm_io.o: pcm_io.c 
+	$(CC) $(CFLAGS) -c $^
+
+log4z.o: log4z.cpp
 	$(CC) $(CFLAGS) -c $^
 
 clean:

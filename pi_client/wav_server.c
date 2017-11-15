@@ -13,7 +13,7 @@
 #include <netdb.h>  
 #include "pcm_io.h"
 int server_exit = 0;
-void wav_server_thread(void *ptr);
+void* wav_server_thread(void *ptr);
 int local_port = 1202;
 int wav_server_start(int port)
 {
@@ -25,9 +25,9 @@ int wav_server_start(int port)
 	pthread_attr_t attr;
 	pthread_attr_init (&attr);
 	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-	char *message1 = "thread wav server";
+	char message1[1024] = "thread wav server";
 	int ret_thrd;
-	ret_thrd = pthread_create(&fd_thread_server, &attr, (void *)&wav_server_thread, (void *) message1);
+	ret_thrd = pthread_create(&fd_thread_server, &attr, wav_server_thread, (void *) message1);
 	pthread_attr_destroy (&attr);
 	if (ret_thrd != 0) {
          printf("线程%s创建失败\n",message1);
@@ -46,7 +46,7 @@ void wav_server_stop(void)
 
 
 
-void wav_server_thread(void *ptr)
+void* wav_server_thread(void *ptr)
 {
 	printf("%s, %s start\n", __FUNCTION__, (char*)ptr);
 	gpio_direction(19,OUT);	//3110 en
@@ -91,6 +91,7 @@ void wav_server_thread(void *ptr)
 //	gpio_unexport(19);
     close(socket_descriptor);  
 	printf("%s, %s exit\n", __FUNCTION__, (char*)ptr);
+	return 0;
 }
 
 

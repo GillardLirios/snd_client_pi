@@ -16,12 +16,12 @@ int pcm_cap_init(void)
     const struct pcm_config config = {
         .channels = 1,
         .rate = 48000,
-        .format = PCM_FORMAT_S16_LE,
         .period_size = 1024,
         .period_count = 2,
+        .format = PCM_FORMAT_S16_LE,
         .start_threshold = 1024,
+        .stop_threshold = 1024 * 2,
         .silence_threshold = 1024 * 2,
-        .stop_threshold = 1024 * 2
     };
 
     pcm_cap = pcm_open(card, device, flags, &config);
@@ -51,12 +51,12 @@ int pcm_out_init(void)
     const struct pcm_config config = {
         .channels = 2,
         .rate = 48000,
-        .format = PCM_FORMAT_S16_LE,
         .period_size = 1024,
         .period_count = 2,
+        .format = PCM_FORMAT_S16_LE,
         .start_threshold = 1024,
+        .stop_threshold = 1024 * 2,
         .silence_threshold = 1024 * 2,
-        .stop_threshold = 1024 * 2
     };
 
 	pcm_out = pcm_open(card, device, flags, &config);
