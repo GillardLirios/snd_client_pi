@@ -12,12 +12,13 @@
 #include <arpa/inet.h>  
 #include <netdb.h>  
 #include "pcm_io.h"
+#include "log4z.h"
 int server_exit = 0;
 void* wav_server_thread(void *ptr);
 int local_port = 1202;
 int wav_server_start(int port)
 {
-	printf("%s %d\r\n",__FUNCTION__, port);
+	LOGFMTT("%s %d",__FUNCTION__, port);
 	server_exit = 0;
 	if(port)
 		local_port = port;
@@ -30,16 +31,16 @@ int wav_server_start(int port)
 	ret_thrd = pthread_create(&fd_thread_server, &attr, wav_server_thread, (void *) message1);
 	pthread_attr_destroy (&attr);
 	if (ret_thrd != 0) {
-         printf("线程%s创建失败\n",message1);
+         LOGFMTT("线程%s创建失败",message1);
      } else {
-         printf("线程%s创建成功\n",message1);
+         LOGFMTT("线程%s创建成功",message1);
 	}
 	return 0;
 }
 
 void wav_server_stop(void)
 {
-	printf("%s\n", __FUNCTION__);
+	LOGFMTT("%s", __FUNCTION__);
 	server_exit = 1;
 	gpio_write(19,1); // close pa
 }
@@ -48,25 +49,25 @@ void wav_server_stop(void)
 
 void* wav_server_thread(void *ptr)
 {
-	printf("%s, %s start\n", __FUNCTION__, (char*)ptr);
+	LOGFMTT("%s, %s start", __FUNCTION__, (char*)ptr);
 	gpio_direction(19,OUT);	//3110 en
 	gpio_write(19,0); // open pa
 
 	 unsigned  int sin_len;  
-    char message[1024000];  
+    	char message[1024000];  
   
-    int socket_descriptor;  
-    struct sockaddr_in sin;  
-    printf("Waiting for data form sender \n");  
-  
-    bzero(&sin,sizeof(sin));  
-    sin.sin_family=AF_INET;  
-    sin.sin_addr.s_addr=htonl(INADDR_ANY);  
-    sin.sin_port=htons(local_port );  
-    sin_len=sizeof(sin);  
-  
-    socket_descriptor=socket(AF_INET,SOCK_DGRAM,0);  
-    bind(socket_descriptor,(struct sockaddr *)&sin,sizeof(sin));  
+	int socket_descriptor;  
+	struct sockaddr_in sin;  
+	//printf("Waiting for data form sender ");  
+
+	bzero(&sin,sizeof(sin));  
+	sin.sin_family=AF_INET;  
+	sin.sin_addr.s_addr=htonl(INADDR_ANY);  
+	sin.sin_port=htons(local_port );  
+	sin_len=sizeof(sin);  
+
+	socket_descriptor=socket(AF_INET,SOCK_DGRAM,0);  
+	bind(socket_descriptor,(struct sockaddr *)&sin,sizeof(sin));  
 	pcm_out_init();
 	while(1)
 	{
@@ -75,9 +76,9 @@ void* wav_server_thread(void *ptr)
 			break;
 		}
 		int ret = recvfrom(socket_descriptor,message,sizeof(message),0,(struct sockaddr *)&sin,&sin_len);  
-        if(ret)
+        	if(ret)
 		{
-			printf("%s, %ld, rcv:%d\n", __FUNCTION__, clock(), ret);  
+			//LOGFMTT("%s, %ld, rcv:%d\n", __FUNCTION__, clock(), ret);  
 			write_frames(message, ret);
 		}
 		else
@@ -89,8 +90,8 @@ void* wav_server_thread(void *ptr)
 //	gpio_unexport(6);
 //	gpio_unexport(13);
 //	gpio_unexport(19);
-    close(socket_descriptor);  
-	printf("%s, %s exit\n", __FUNCTION__, (char*)ptr);
+    	close(socket_descriptor);  
+	LOGFMTT("%s, %s exit", __FUNCTION__, (char*)ptr);
 	return 0;
 }
 

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <tinyalsa/pcm.h>
+#include "log4z.h"
 static struct pcm *pcm_cap;
 static struct pcm *pcm_out;
 static unsigned int cap_frames_per_interval; 
@@ -26,11 +27,11 @@ int pcm_cap_init(void)
 
     pcm_cap = pcm_open(card, device, flags, &config);
     if (pcm_cap == NULL) {
-        fprintf(stderr, "failed to allocate memory for PCM\n");
+        LOGFMTE( "failed to allocate memory for PCM\n");
         return EXIT_FAILURE;
     } else if (!pcm_is_ready(pcm_cap)){
         pcm_close(pcm_cap);
-        fprintf(stderr, "failed to open PCM\n");
+        LOGFMTE( "failed to open PCM\n");
         return EXIT_FAILURE;
     }
 
@@ -42,7 +43,7 @@ int pcm_cap_init(void)
 
 int pcm_out_init(void)
 {
-	printf("%s\n", __FUNCTION__);
+	LOGFMTT("%s\n", __FUNCTION__);
 
     unsigned int card = 1;
     unsigned int device = 0;
@@ -61,11 +62,11 @@ int pcm_out_init(void)
 
 	pcm_out = pcm_open(card, device, flags, &config);
     if (pcm_out == NULL) {
-        fprintf(stderr, "failed to allocate memory for PCM\n");
+        LOGFMTE( "failed to allocate memory for PCM\n");
         return -1;
     } else if (!pcm_is_ready(pcm_out)){
         pcm_close(pcm_out);
-        fprintf(stderr, "failed to open PCM\n");
+        LOGFMTE( "failed to open PCM\n");
         return -1;
     }
 
@@ -82,7 +83,7 @@ size_t read_frames(void** frames)
 
 int write_frames(const void * frames, size_t byte_count)
 {
-	printf("%s\n %x, %d", __FUNCTION__,(unsigned int)frames,byte_count);
+	//LOGFMTT("%s\n %x, %d", __FUNCTION__,(unsigned int)frames,byte_count);
     unsigned int frame_count = pcm_bytes_to_frames(pcm_out, byte_count);
     pcm_writei(pcm_out, frames, frame_count);
 	return 0;
@@ -90,7 +91,7 @@ int write_frames(const void * frames, size_t byte_count)
 
 int pcm_cap_close(void)
 {
-	printf("%s\n", __FUNCTION__);
+	LOGFMTT("%s", __FUNCTION__);
 	 if (pcm_cap) {
 		pcm_close(pcm_cap);
 	}
@@ -99,7 +100,7 @@ int pcm_cap_close(void)
 
 int pcm_out_close(void)
 {
-	printf("%s\n", __FUNCTION__);
+	LOGFMTT("%s\n", __FUNCTION__);
 	 if (pcm_out) {
 		pcm_close(pcm_out);
 	}

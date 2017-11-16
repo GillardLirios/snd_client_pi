@@ -9,7 +9,7 @@
 #include <netinet/in.h>  
 #include <arpa/inet.h>  
 #include <netdb.h>
-
+#include "log4z.h"
 int client_exit = 0;
 void* wav_client_thread(void *ptr);
 char remote_ip[16];
@@ -22,7 +22,7 @@ int wav_client_start(const char* ip, int port)
 		strcpy(remote_ip,ip);
 	else
 	{
-		printf("invalid ip addr %s\n", ip);
+		LOGFMTE("invalid ip addr %s\n", ip);
 	}
 	remote_port = port;
 	pthread_t fd_thread_client;
@@ -34,16 +34,16 @@ int wav_client_start(const char* ip, int port)
 	ret_thrd = pthread_create(&fd_thread_client, &attr, wav_client_thread, NULL);
 	pthread_attr_destroy (&attr);
 	if (ret_thrd != 0) {
-         printf("线程%s创建失败\n",message1);
+         LOGFMTE("线程%s创建失败\n",message1);
      } else {
-         printf("线程%s创建成功\n",message1);
+         LOGFMTT("线程%s创建成功\n",message1);
 	}
 	return 0;
 }
 
 void wav_client_stop(void)
 {
-	printf("%s\n", __FUNCTION__);
+	LOGFMTT("%s\n", __FUNCTION__);
 	client_exit = 1;
 }
 
@@ -53,17 +53,17 @@ static void* cap_frames;
 
 void* wav_client_thread(void *ptr)
 {
-	printf("%s  %s start\n", __FUNCTION__, (char*)ptr);
+	LOGFMTT("%s  %s start\n", __FUNCTION__, (char*)ptr);
 	int frame_len = pcm_cap_init();
 	cap_frames = malloc(frame_len );
   	if (cap_frames  == NULL) {
-		fprintf(stderr, "failed to allocate frames\n");
+		LOGFMTE( "failed to allocate frames\n");
 		pcm_cap_close();
 		return NULL;
  	}
 	else
 	{
-		printf("cap frame size=%d\n",frame_len);
+		LOGFMTT("cap frame size=%d\n",frame_len);
 	}
 
 	int socket_descriptor; //套接口描述字  
@@ -89,7 +89,7 @@ void* wav_client_thread(void *ptr)
 		}
 		int size = read_frames(&cap_frames);
 		if (size == 0) {
-			printf("read frame size 0\n");
+			LOGFMTW("read frame size 0\n");
 		    break;
 		}
 		else
@@ -113,7 +113,7 @@ void* wav_client_thread(void *ptr)
 	free(cap_frames);
 	pcm_cap_close();
 	close(socket_descriptor);  
-	printf("%s, %s exit\n", __FUNCTION__, (char*)ptr);
+	LOGFMTT("%s, %s exit\n", __FUNCTION__, (char*)ptr);
 		return NULL;
 }
 

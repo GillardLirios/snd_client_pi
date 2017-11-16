@@ -1,8 +1,0 @@
-2017-11-15 10:17:06.033 [0672] LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1923
-2017-11-15 10:17:06.033 [0672] LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=1 display=true log4z.cpp:1933
-2017-11-15 10:17:06.083 [0671] LOG_DEBUG format input *** LOGFMTD *** 123456 *** main.c:40
-2017-11-15 10:17:06.083 [0671] LOG_INFO format input *** LOGFMTI *** 123456 *** main.c:41
-2017-11-15 10:17:06.083 [0671] LOG_WARN format input *** LOGFMTW *** 123456 *** main.c:42
-2017-11-15 10:17:06.083 [0671] LOG_ERROR format input *** LOGFMTE *** 123456 *** main.c:43
-2017-11-15 10:17:06.083 [0671] LOG_ALARM format input *** LOGFMTA *** 123456 *** main.c:44
-2017-11-15 10:17:06.083 [0671] LOG_FATAL format input *** LOGFMTF *** 123456 *** main.c:45

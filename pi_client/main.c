@@ -12,7 +12,7 @@ static int rport = 1201;
 static int lport = 1201;
 int state_client_callback(int cmd, int para)
 {
-	printf("%s cmd=%d, para=%d\r\n",__FUNCTION__, cmd, para);
+	LOGFMTT("%s cmd=%d, para=%d",__FUNCTION__, cmd, para);
 	switch(cmd)
 	{
 	case 1:
@@ -35,6 +35,7 @@ int  main(int argc, char* argv[])
 {
 //start log4z  
       ILog4zManager::getRef().start();  
+	ILog4zManager::getPtr()->setLoggerLevel(LOG4Z_MAIN_LOGGER_ID, LOG_LEVEL_TRACE);
  //begin test format log input....  
       LOGFMTT("format input *** %s *** %d ***", "LOGFMTT", 123456);  
       LOGFMTD("format input *** %s *** %d ***", "LOGFMTD", 123456);  
@@ -46,14 +47,14 @@ int  main(int argc, char* argv[])
  
 	if(argc!=4)
 	{
-		printf("pi_main rip rport lport\r\n");
+		LOGFMTI("pi_main rip rport lport");
 		return -1;
 	}
 	memset(rip,0,32);
  	strcpy(rip,argv[1]);
 	rport = atoi(argv[2]);
 	lport = atoi(argv[3]);
-	printf("remote:%s:%d,  local = %d\r\n", rip, rport, lport);
+	LOGFMTT("remote:%s:%d,  local = %d", rip, rport, lport);
 	
 	state_client_start(state_client_callback, rip, rport);
 	while(1){

@@ -6,12 +6,13 @@
 #include <pthread.h>
 #include "rpi_gpio.h"
 #include <event.h>
+#include "log4z.h"
 
 void* state_thread(void *ptr);
 STATE_CLIENT_CALLBACK  cb_fun;
 int state_client_start(STATE_CLIENT_CALLBACK cb,const char* ip, int port)
 {
-	printf("%s %s:%d\r\n",__FUNCTION__,ip, port);
+	LOGFMTT("%s %s:%d",__FUNCTION__,ip, port);
 	cb_fun = cb;
 	//cb(1, 0);
 	pthread_t fd_thread;
@@ -23,9 +24,9 @@ int state_client_start(STATE_CLIENT_CALLBACK cb,const char* ip, int port)
 	ret_thrd = pthread_create(&fd_thread, &attr, state_thread, (void *) message1);
 	pthread_attr_destroy (&attr);
 	if (ret_thrd != 0) {
-         printf("线程%s创建失败\n",message1);
+         LOGFMTE("线程%s创建失败",message1);
      } else {
-         printf("线程%s创建成功\n",message1);
+         LOGFMTT("线程%s创建成功",message1);
 	}
 	return 0;
 }
@@ -66,7 +67,7 @@ typedef enum
 #endif
 void* state_thread(void *ptr)
 {
-	printf("%s, %s start\n", __FUNCTION__, (char*)ptr);
+	LOGFMTT("%s, %s start", __FUNCTION__, (char*)ptr);
 	gpio_export(6);
 	gpio_export(13);
 	gpio_export(17);	
@@ -88,12 +89,12 @@ void* state_thread(void *ptr)
 	while(1)
 	{
 		call_button = gpio_read(27);
-		//printf("gpio17=%d\r\n", gpio_read(17));
+		//LOGFMTT("gpio17=%d", gpio_read(17));
 		if(!is_calling && call_button)
 		{
 			is_calling = 1;
 			calling_time  = 0;
-			printf("call pressed\n");
+			LOGFMTI("call pressed");
 			cb_fun(is_calling ,0);
 			gpio_write(19, 0);
 			gpio_write(17, 1);
@@ -102,7 +103,7 @@ void* state_thread(void *ptr)
 		{
 			if(calling_time++>MAX_CALLING_TIME)
 			{
-				printf("calling timeout\n");
+				LOGFMTI("calling timeout");
 				is_calling  = 0;
 				cb_fun(is_calling ,0);
 				gpio_write(19, 1);  // shutdown pa & led
@@ -118,7 +119,7 @@ void* state_thread(void *ptr)
 	gpio_unexport(17);
 	gpio_unexport(19);
 	gpio_unexport(27);
-	printf("%s, %s exit\n", __FUNCTION__, (char*)ptr);
+	LOGFMTT("%s, %s exit", __FUNCTION__, (char*)ptr);
 	return 0;
 }
 

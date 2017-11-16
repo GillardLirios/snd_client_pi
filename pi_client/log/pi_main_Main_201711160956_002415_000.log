@@ -1,0 +1,27 @@
+2017-11-16 09:56:12.648 [2416] LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1923
+2017-11-16 09:56:12.648 [2416] LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=1 display=true log4z.cpp:1933
+2017-11-16 09:56:12.698 [2415] LOG_TRACE format input *** LOGFMTT *** 123456 *** main.c:40
+2017-11-16 09:56:12.698 [2415] LOG_DEBUG format input *** LOGFMTD *** 123456 *** main.c:41
+2017-11-16 09:56:12.698 [2415] LOG_INFO format input *** LOGFMTI *** 123456 *** main.c:42
+2017-11-16 09:56:12.698 [2415] LOG_WARN format input *** LOGFMTW *** 123456 *** main.c:43
+2017-11-16 09:56:12.698 [2415] LOG_ERROR format input *** LOGFMTE *** 123456 *** main.c:44
+2017-11-16 09:56:12.698 [2415] LOG_ALARM format input *** LOGFMTA *** 123456 *** main.c:45
+2017-11-16 09:56:12.698 [2415] LOG_FATAL format input *** LOGFMTF *** 123456 *** main.c:46
+2017-11-16 09:56:12.698 [2415] LOG_TRACE remote:127.0.0.1:1201,  local = 1201 main.c:57
+2017-11-16 09:56:12.698 [2415] LOG_TRACE state_client_start 127.0.0.1:1201 state_client.c:15
+2017-11-16 09:56:12.698 [2415] LOG_TRACE 线程thread state client创建成功 state_client.c:29
+2017-11-16 09:56:12.699 [2417] LOG_TRACE state_thread, thread state client start state_client.c:70
+2017-11-16 09:56:15.517 [2417] LOG_INFO call pressed state_client.c:97
+2017-11-16 09:56:15.517 [2417] LOG_TRACE state_client_callback cmd=1, para=0
+ main.c:15
+2017-11-16 09:56:15.517 [2417] LOG_TRACE wav_server_start 1201 wav_server.c:21
+2017-11-16 09:56:15.518 [2417] LOG_TRACE 线程thread wav server创建成功 wav_server.c:36
+2017-11-16 09:56:15.518 [2417] LOG_TRACE 线程thread wav client创建成功
+ wav_client.c:39
+2017-11-16 09:56:15.518 [2420] LOG_TRACE wav_server_thread, thread wav client start wav_server.c:52
+2017-11-16 09:56:15.518 [2420] LOG_TRACE pcm_out_init
+ pcm_io.c:46
+2017-11-16 09:56:15.518 [2421] LOG_TRACE wav_client_thread  (null) start
+ wav_client.c:56
+2017-11-16 09:56:15.520 [2421] LOG_TRACE cap frame size=640
+ wav_client.c:66
