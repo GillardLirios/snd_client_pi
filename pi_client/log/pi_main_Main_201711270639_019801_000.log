@@ -1,0 +1,13 @@
+2017-11-27 06:39:07.923 [19802] LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1923
+2017-11-27 06:39:07.923 [19802] LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=0 display=true log4z.cpp:1933
+2017-11-27 06:39:07.974 [19801] LOG_TRACE format input *** LOGFMTT *** 123456 *** main.cpp:40
+2017-11-27 06:39:07.974 [19801] LOG_DEBUG format input *** LOGFMTD *** 123456 *** main.cpp:41
+2017-11-27 06:39:07.974 [19801] LOG_INFO format input *** LOGFMTI *** 123456 *** main.cpp:42
+2017-11-27 06:39:07.974 [19801] LOG_WARN format input *** LOGFMTW *** 123456 *** main.cpp:43
+2017-11-27 06:39:07.974 [19801] LOG_ERROR format input *** LOGFMTE *** 123456 *** main.cpp:44
+2017-11-27 06:39:07.974 [19801] LOG_ALARM format input *** LOGFMTA *** 123456 *** main.cpp:45
+2017-11-27 06:39:07.974 [19801] LOG_FATAL format input *** LOGFMTF *** 123456 *** main.cpp:46
+2017-11-27 06:39:07.974 [19801] LOG_TRACE remote:127.0.0.1:1201,  local = 1201 main.cpp:57
+2017-11-27 06:39:07.974 [19801] LOG_TRACE state_client_start 127.0.0.1:1201 state_client.cpp:15
+2017-11-27 06:39:07.975 [19801] LOG_TRACE 线程thread state client创建成功 state_client.cpp:29
+2017-11-27 06:39:07.975 [19803] LOG_TRACE state_thread, thread state client start state_client.cpp:70

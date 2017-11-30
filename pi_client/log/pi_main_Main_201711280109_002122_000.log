@@ -1,0 +1,26 @@
+2017-11-28 01:09:35.659 [2123] LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1923
+2017-11-28 01:09:35.659 [2123] LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=0 display=true log4z.cpp:1933
+2017-11-28 01:09:35.709 [2122] LOG_TRACE format input *** LOGFMTT *** 123456 *** main.cpp:40
+2017-11-28 01:09:35.709 [2122] LOG_DEBUG format input *** LOGFMTD *** 123456 *** main.cpp:41
+2017-11-28 01:09:35.709 [2122] LOG_INFO format input *** LOGFMTI *** 123456 *** main.cpp:42
+2017-11-28 01:09:35.709 [2122] LOG_WARN format input *** LOGFMTW *** 123456 *** main.cpp:43
+2017-11-28 01:09:35.709 [2122] LOG_ERROR format input *** LOGFMTE *** 123456 *** main.cpp:44
+2017-11-28 01:09:35.709 [2122] LOG_ALARM format input *** LOGFMTA *** 123456 *** main.cpp:45
+2017-11-28 01:09:35.709 [2122] LOG_FATAL format input *** LOGFMTF *** 123456 *** main.cpp:46
+2017-11-28 01:09:35.709 [2122] LOG_TRACE remote:127.0.0.1:1201,  local = 1201 main.cpp:57
+2017-11-28 01:09:35.709 [2122] LOG_TRACE state_client_start 127.0.0.1:1201 state_client.cpp:15
+2017-11-28 01:09:35.710 [2122] LOG_TRACE 线程thread state client创建成功 state_client.cpp:29
+2017-11-28 01:09:35.710 [2124] LOG_TRACE state_thread, thread state client start state_client.cpp:70
+2017-11-28 01:10:57.118 [2124] LOG_INFO call pressed state_client.cpp:97
+2017-11-28 01:10:57.118 [2124] LOG_TRACE state_client_callback cmd=1, para=0 main.cpp:15
+2017-11-28 01:10:57.118 [2124] LOG_TRACE wav_server_start 1201 wav_server.cpp:21
+2017-11-28 01:10:57.118 [2124] LOG_TRACE 线程thread wav server创建成功 wav_server.cpp:36
+2017-11-28 01:10:57.118 [2124] LOG_TRACE 线程thread wav client创建成功
+ wav_client.cpp:41
+2017-11-28 01:10:57.118 [2160] LOG_TRACE wav_server_thread, av client start wav_server.cpp:52
+2017-11-28 01:10:57.119 [2160] LOG_TRACE pcm_out_init
+ pcm_io.cpp:46
+2017-11-28 01:10:57.119 [2161] LOG_TRACE wav_client_thread  (null) start
+ wav_client.cpp:58
+2017-11-28 01:10:57.120 [2161] LOG_TRACE cap frame size=640
+ wav_client.cpp:68

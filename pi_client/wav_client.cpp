@@ -10,7 +10,9 @@
 #include <arpa/inet.h>  
 #include <netdb.h>
 #include "log4z.h"
+
 int client_exit = 0;
+
 void* wav_client_thread(void *ptr);
 char remote_ip[16];
 int remote_port = 7000;
