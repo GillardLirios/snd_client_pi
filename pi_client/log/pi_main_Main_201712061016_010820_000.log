@@ -1,0 +1,10 @@
+2017-12-06 10:16:52.826 [10821] LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1923
+2017-12-06 10:16:52.827 [10821] LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=0 display=true log4z.cpp:1933
+2017-12-06 10:16:52.876 [10820] LOG_TRACE format input *** LOGFMTT *** 123456 *** main.cpp:41
+2017-12-06 10:16:52.877 [10820] LOG_DEBUG format input *** LOGFMTD *** 123456 *** main.cpp:42
+2017-12-06 10:16:52.877 [10820] LOG_INFO format input *** LOGFMTI *** 123456 *** main.cpp:43
+2017-12-06 10:16:52.877 [10820] LOG_WARN format input *** LOGFMTW *** 123456 *** main.cpp:44
+2017-12-06 10:16:52.877 [10820] LOG_ERROR format input *** LOGFMTE *** 123456 *** main.cpp:45
+2017-12-06 10:16:52.877 [10820] LOG_ALARM format input *** LOGFMTA *** 123456 *** main.cpp:46
+2017-12-06 10:16:52.877 [10820] LOG_FATAL format input *** LOGFMTF *** 123456 *** main.cpp:47
+2017-12-06 10:16:52.877 [10820] LOG_INFO pi_main rip rport lport main.cpp:51

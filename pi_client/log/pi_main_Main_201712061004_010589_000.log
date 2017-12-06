@@ -1,0 +1,19 @@
+2017-12-06 10:04:36.355 [10590] LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1923
+2017-12-06 10:04:36.355 [10590] LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=0 display=true log4z.cpp:1933
+2017-12-06 10:04:36.405 [10589] LOG_TRACE format input *** LOGFMTT *** 123456 *** main.cpp:41
+2017-12-06 10:04:36.405 [10589] LOG_DEBUG format input *** LOGFMTD *** 123456 *** main.cpp:42
+2017-12-06 10:04:36.405 [10589] LOG_INFO format input *** LOGFMTI *** 123456 *** main.cpp:43
+2017-12-06 10:04:36.405 [10589] LOG_WARN format input *** LOGFMTW *** 123456 *** main.cpp:44
+2017-12-06 10:04:36.405 [10589] LOG_ERROR format input *** LOGFMTE *** 123456 *** main.cpp:45
+2017-12-06 10:04:36.405 [10589] LOG_ALARM format input *** LOGFMTA *** 123456 *** main.cpp:46
+2017-12-06 10:04:36.405 [10589] LOG_FATAL format input *** LOGFMTF *** 123456 *** main.cpp:47
+2017-12-06 10:04:36.405 [10589] LOG_TRACE remote:127.0.0.1:1201,  local = 1201 main.cpp:58
+2017-12-06 10:04:36.405 [10589] LOG_TRACE state_client_start 127.0.0.1:1201 state_client.cpp:15
+2017-12-06 10:04:36.405 [10589] LOG_TRACE 线程thread state client创建成功 state_client.cpp:29
+2017-12-06 10:04:36.405 [10589] LOG_TRACE broadcast_server_start 1200 broadcast_server.cpp:21
+2017-12-06 10:04:36.405 [10591] LOG_TRACE state_thread,  start state_client.cpp:70
+2017-12-06 10:04:36.405 [10589] LOG_TRACE 线程thread broadcast server创建成功 broadcast_server.cpp:36
+2017-12-06 10:04:36.406 [10592] LOG_TRACE broadcast_server_thread, thread broadcast server start broadcast_server.cpp:52
+2017-12-06 10:04:36.406 [10592] LOG_TRACE pcm_out_init2
+ pcm_io.cpp:81
+2017-12-06 10:04:36.407 [10592] LOG_TRACE pcm_out_init2 end pcm_io.cpp:107

@@ -2,6 +2,7 @@
 #include "state_client.h"
 #include "wav_client.h"
 #include "wav_server.h"
+#include "broadcast_server.h"
 #include <stdlib.h>
 #include <string.h>
 #include<unistd.h>
@@ -57,6 +58,7 @@ int  main(int argc, char* argv[])
 	LOGFMTT("remote:%s:%d,  local = %d", rip, rport, lport);
 	
 	state_client_start(state_client_callback, rip, rport);
+	broadcast_server_start(1200);
 	while(1){
 		sleep(1);	
 	}

@@ -5,6 +5,7 @@
 #include "log4z.h"
 static struct pcm *pcm_cap;
 static struct pcm *pcm_out;
+static struct pcm *pcm_out2;
 static unsigned int cap_frames_per_interval; 
 static unsigned int cap_interval = 20;	//ms
 static unsigned int cap_sampes = 320;	//ms
@@ -74,6 +75,40 @@ int pcm_out_init(void)
 	return 0;
 }
 
+
+int pcm_out_init2(void)
+{
+	LOGFMTT("%s\n", __FUNCTION__);
+
+    unsigned int card = 0;
+    unsigned int device = 0;
+    int flags = PCM_OUT;
+
+    const struct pcm_config config = {
+        .channels = 2,
+        .rate = 20500,
+        .period_size = 1024,
+        .period_count = 2,
+        .format = PCM_FORMAT_S16_LE,
+        .start_threshold = 1024,
+        .stop_threshold = 1024 * 2,
+        .silence_threshold = 1024 * 2,
+    };
+
+	pcm_out2 = pcm_open(card, device, flags, &config);
+    if (pcm_out2 == NULL) {
+        LOGFMTE( "failed to allocate memory for PCM\n");
+        return -1;
+    } else if (!pcm_is_ready(pcm_out2)){
+        pcm_close(pcm_out2);
+        LOGFMTE( "failed to open PCM\n");
+        return -1;
+    }
+	LOGFMTT("%s end",__FUNCTION__);
+
+	return 0;
+}
+
 size_t read_frames(void** frames)
 {
    int read_count = pcm_readi(pcm_cap, *frames, cap_sampes );
@@ -86,6 +121,13 @@ int write_frames(const void * frames, size_t byte_count)
 	//LOGFMTT("%s\n %x, %d", __FUNCTION__,(unsigned int)frames,byte_count);
     unsigned int frame_count = pcm_bytes_to_frames(pcm_out, byte_count);
     pcm_writei(pcm_out, frames, frame_count);
+	return 0;
+}
+int write_frames2(const void * frames, size_t byte_count)
+{
+	//LOGFMTT("%s\n %x, %d", __FUNCTION__,(unsigned int)frames,byte_count);
+    unsigned int frame_count = pcm_bytes_to_frames(pcm_out2, byte_count);
+    pcm_writei(pcm_out2, frames, frame_count);
 	return 0;
 }
 
@@ -103,6 +145,15 @@ int pcm_out_close(void)
 	LOGFMTT("%s\n", __FUNCTION__);
 	 if (pcm_out) {
 		pcm_close(pcm_out);
+	}
+	return 0;
+}
+
+int pcm_out_close2(void)
+{
+	LOGFMTT("%s\n", __FUNCTION__);
+	 if (pcm_out2) {
+		pcm_close(pcm_out2);
 	}
 	return 0;
 }

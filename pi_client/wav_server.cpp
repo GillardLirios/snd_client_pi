@@ -54,7 +54,7 @@ void* wav_server_thread(void *ptr)
 	gpio_write(19,0); // open pa
 
 	 unsigned  int sin_len;  
-    	char message[1024000];  
+    	char message[10240];  
   
 	int socket_descriptor;  
 	struct sockaddr_in sin;  
@@ -78,7 +78,7 @@ void* wav_server_thread(void *ptr)
 		int ret = recvfrom(socket_descriptor,message,sizeof(message),0,(struct sockaddr *)&sin,&sin_len);  
         	if(ret)
 		{
-			//LOGFMTT("%s, %ld, rcv:%d\n", __FUNCTION__, clock(), ret);  
+			LOGFMTT("%s, %ld, rcv:%d\n", __FUNCTION__, clock(), ret);  
 			write_frames(message, ret);
 		}
 		else
