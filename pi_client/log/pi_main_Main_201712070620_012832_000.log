@@ -1,0 +1,115 @@
+2017-12-07 06:20:52.990 [12833] LOG_ALARM -----------------  log4z thread started!   ---------------------------- log4z.cpp:1923
+2017-12-07 06:20:52.990 [12833] LOG_ALARM logger id=0 key=Main name=Main path=./log/ level=0 display=true log4z.cpp:1933
+2017-12-07 06:20:53.040 [12832] LOG_TRACE format input *** LOGFMTT *** 123456 *** main.cpp:42
+2017-12-07 06:20:53.040 [12832] LOG_DEBUG format input *** LOGFMTD *** 123456 *** main.cpp:43
+2017-12-07 06:20:53.040 [12832] LOG_INFO format input *** LOGFMTI *** 123456 *** main.cpp:44
+2017-12-07 06:20:53.040 [12832] LOG_WARN format input *** LOGFMTW *** 123456 *** main.cpp:45
+2017-12-07 06:20:53.040 [12832] LOG_ERROR format input *** LOGFMTE *** 123456 *** main.cpp:46
+2017-12-07 06:20:53.040 [12832] LOG_ALARM format input *** LOGFMTA *** 123456 *** main.cpp:47
+2017-12-07 06:20:53.040 [12832] LOG_FATAL format input *** LOGFMTF *** 123456 *** main.cpp:48
+2017-12-07 06:20:53.040 [12832] LOG_TRACE remote:127.0.0.1:1201,  local = 1201, dev_id=1 main.cpp:60
+2017-12-07 06:20:53.040 [12832] LOG_TRACE state_client_start 127.0.0.1:1201 state_client.cpp:15
+2017-12-07 06:20:53.041 [12832] LOG_TRACE 线程thread state client创建成功 state_client.cpp:29
+2017-12-07 06:20:53.041 [12832] LOG_TRACE broadcast_server_start 1200 broadcast_server.cpp:22
+2017-12-07 06:20:53.041 [12834] LOG_TRACE state_thread,  start state_client.cpp:70
+2017-12-07 06:20:53.041 [12832] LOG_TRACE 线程thread broadcast server创建成功 broadcast_server.cpp:39
+2017-12-07 06:20:53.041 [12835] LOG_TRACE broadcast_server_thread, thread broadcast server start broadcast_server.cpp:55
+2017-12-07 06:20:53.041 [12835] LOG_TRACE pcm_out_init2
+ pcm_io.cpp:81
+2017-12-07 06:20:53.042 [12835] LOG_TRACE pcm_out_init2 end pcm_io.cpp:107
+2017-12-07 06:20:53.042 [12835] LOG_TRACE broadcast_server_thread,   looping broadcast_server.cpp:82
+2017-12-07 06:21:08.486 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.10%} broadcast_server.cpp:169
+2017-12-07 06:21:19.346 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:21:30.036 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:21:40.516 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:21:51.006 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:22:01.476 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.45%} broadcast_server.cpp:169
+2017-12-07 06:22:12.026 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:22:32.206 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.08%} broadcast_server.cpp:169
+2017-12-07 06:22:42.496 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:22:53.256 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:23:03.516 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:23:14.026 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:23:25.166 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:23:35.966 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:23:46.528 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:23:56.905 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:24:07.535 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:24:17.945 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:2.34%} broadcast_server.cpp:169
+2017-12-07 06:24:39.086 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.07%} broadcast_server.cpp:169
+2017-12-07 06:24:49.525 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:25:00.026 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:25:10.546 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:25:20.086 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.33%} broadcast_server.cpp:169
+2017-12-07 06:25:30.836 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.18%} broadcast_server.cpp:169
+2017-12-07 06:25:40.996 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.20%} broadcast_server.cpp:169
+2017-12-07 06:25:51.555 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.20%} broadcast_server.cpp:169
+2017-12-07 06:26:02.166 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.33%} broadcast_server.cpp:169
+2017-12-07 06:26:23.085 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.08%} broadcast_server.cpp:169
+2017-12-07 06:26:34.125 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:26:44.016 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.63%} broadcast_server.cpp:169
+2017-12-07 06:27:15.556 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.00%} broadcast_server.cpp:169
+2017-12-07 06:27:36.565 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.09%} broadcast_server.cpp:169
+2017-12-07 06:27:47.146 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.17%} broadcast_server.cpp:169
+2017-12-07 06:27:58.135 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:28:18.606 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.08%} broadcast_server.cpp:169
+2017-12-07 06:28:29.365 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.58%} broadcast_server.cpp:169
+2017-12-07 06:28:39.896 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:28:50.776 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:29:00.986 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:29:11.805 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:29:22.106 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:29:32.755 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.29%} broadcast_server.cpp:169
+2017-12-07 06:29:43.536 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:29:54.025 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:30:04.565 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:30:14.745 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.46%} broadcast_server.cpp:169
+2017-12-07 06:30:25.325 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:30:35.725 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:30:46.295 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:30:56.905 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:31:06.815 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.31%} broadcast_server.cpp:169
+2017-12-07 06:31:17.005 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.70%} broadcast_server.cpp:169
+2017-12-07 06:31:27.535 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.18%} broadcast_server.cpp:169
+2017-12-07 06:31:38.045 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.17%} broadcast_server.cpp:169
+2017-12-07 06:31:48.565 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:31:59.285 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.29%} broadcast_server.cpp:169
+2017-12-07 06:32:09.805 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:32:31.005 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.07%} broadcast_server.cpp:169
+2017-12-07 06:32:41.455 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:32:51.765 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:33:23.165 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.05%} broadcast_server.cpp:169
+2017-12-07 06:33:33.615 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:33:44.385 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:33:55.325 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.28%} broadcast_server.cpp:169
+2017-12-07 06:34:05.705 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.60%} broadcast_server.cpp:169
+2017-12-07 06:34:15.555 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.17%} broadcast_server.cpp:169
+2017-12-07 06:34:26.575 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.29%} broadcast_server.cpp:169
+2017-12-07 06:34:37.075 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:34:47.815 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:35:09.045 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.07%} broadcast_server.cpp:169
+2017-12-07 06:35:19.395 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:35:30.025 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:35:40.315 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.45%} broadcast_server.cpp:169
+2017-12-07 06:36:01.555 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.07%} broadcast_server.cpp:169
+2017-12-07 06:36:11.765 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:36:22.475 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:36:33.015 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:36:43.515 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:36:54.035 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:37:03.535 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.17%} broadcast_server.cpp:169
+2017-12-07 06:37:14.085 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.34%} broadcast_server.cpp:169
+2017-12-07 06:37:24.845 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:37:35.275 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:37:45.665 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:37:56.155 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:38:07.195 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.14%} broadcast_server.cpp:169
+2017-12-07 06:38:17.935 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:38:28.545 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.29%} broadcast_server.cpp:169
+2017-12-07 06:38:38.604 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.16%} broadcast_server.cpp:169
+2017-12-07 06:39:10.044 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.10%} broadcast_server.cpp:169
+2017-12-07 06:39:20.374 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.15%} broadcast_server.cpp:169
+2017-12-07 06:39:30.664 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.30%} broadcast_server.cpp:169
+2017-12-07 06:39:41.055 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.16%} broadcast_server.cpp:169
+2017-12-07 06:39:51.774 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.16%} broadcast_server.cpp:169
+2017-12-07 06:40:23.315 [12835] LOG_TRACE recv UDP(1200):23, reply:{DEV_ID:1},{LOST:0.06%} broadcast_server.cpp:169

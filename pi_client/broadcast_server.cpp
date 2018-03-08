@@ -92,72 +92,83 @@ void* broadcast_server_thread(void *ptr)
 			break;
 		}
 		int ret = recvfrom(socket_descriptor,message,sizeof(message),0,(struct sockaddr *)&sin,&sin_len);  
-        	if(1314==ret && 0x5a == message[0])
+        	if(ret>0)
 		{
-			if(message[1] != ((pkt_idx+1)&0xff))
+			if(1314==ret && 0x5a == message[0])
 			{
-				if(message[1]>pkt_idx)
+				if(message[1] != ((pkt_idx+1)&0xff))
 				{
-					lost_pkt_cnt = message[1]-pkt_idx-1;	
+					if(message[1]>pkt_idx)
+					{
+						lost_pkt_cnt = message[1]-pkt_idx-1;	
+					}
+					else
+					{
+						lost_pkt_cnt =255+message[1]-pkt_idx-1;
+					}
+					//LOGFMTT("pkt lost:%d, last=%d,current=%d",lost_pkt_cnt, pkt_idx, message[1]);
+				
+				}
+				pkt_idx = message[1];
+				rcv_pkt_cnt++;
+				if(message[broadcast_device_id /8+2] & (1<<(broadcast_device_id %8)))
+				{
+					//putchar('~');
+					if(sdz == 1)
+					{
+						//GPIO_ResetBits(GPIOC,GPIO_Pin_6);
+						sdz = 0;
+						printf("PA on\r\n");
+					}
+				
+					unsigned int u32sample = 0;
+					int i32sample = 0;
+					short i16sample = 0;
+					#if 1
+					for(int i=34;i<1314;)
+					{
+						u32sample = (message[i] | message[i+1]<<8);
+						//printf("%X\t", u32sample);
+						i32sample = u32sample;
+						i32sample = (i32sample -32768);
+						//printf("%X\t",i32sample);
+						i16sample = (short)i32sample;
+						//printf("%d\t",i16sample);
+						message[i] = i16sample & 0xff;
+						//printf("%X\t",message[i] );
+						message[i+1] = (i16sample>>8)&0xff;
+						//printf("%X\n",message[i+1] );
+						message[i+2] = message[i] ;
+						message[i+3] = message[i+1] ;
+						i+=4;
+					}
+					#endif
+					//write_frames2(ppcm, ret);
+					write_frames2(ppcm+34, 1280);
+			
 				}
 				else
 				{
-					lost_pkt_cnt =255+message[1]-pkt_idx-1;
-				}
-				//LOGFMTT("pkt lost:%d, last=%d,current=%d",lost_pkt_cnt, pkt_idx, message[1]);
+					putchar('X');
+					if(sdz == 0)
+					{
+						//GPIO_SetBits(GPIOC,GPIO_Pin_6);
+						sdz = 1;
+						printf("PA off\r\n");
+					}
 				
-			}
-			pkt_idx = message[1];
-			rcv_pkt_cnt++;
-			if(message[broadcast_device_id /8+2] & (1<<(broadcast_device_id %8)))
-			{
-				//putchar('~');
-				if(sdz == 1)
-				{
-					//GPIO_ResetBits(GPIOC,GPIO_Pin_6);
-					sdz = 0;
-					printf("PA on\r\n");
-				}
-				
-				unsigned int u32sample = 0;
-				int i32sample = 0;
-				short i16sample = 0;
-				#if 1
-				for(int i=34;i<1314;)
-				{
-					u32sample = (message[i] | message[i+1]<<8);
-					//printf("%X\t", u32sample);
-					i32sample = u32sample;
-					i32sample = (i32sample -32768);
-					//printf("%X\t",i32sample);
-					i16sample = (short)i32sample;
-					//printf("%d\t",i16sample);
-					message[i] = i16sample & 0xff;
-					//printf("%X\t",message[i] );
-					message[i+1] = (i16sample>>8)&0xff;
-					//printf("%X\n",message[i+1] );
-					message[i+2] = message[i] ;
-					message[i+3] = message[i+1] ;
-					i+=4;
-				}
-				#endif
-				//write_frames2(ppcm, ret);
-				write_frames2(ppcm+34, 1280);
-			
+				}	
+	//			LOGFMTT("%s, %ld, rcv:%d\n", __FUNCTION__, clock(), ret);  
 			}
 			else
 			{
-				putchar('X');
-				if(sdz == 0)
-				{
-					//GPIO_SetBits(GPIOC,GPIO_Pin_6);
-					sdz = 1;
-					printf("PA off\r\n");
-				}
-				
-			}	
-//			LOGFMTT("%s, %ld, rcv:%d\n", __FUNCTION__, clock(), ret);  
-			
+				char buf1[256];
+				sprintf(buf1,"{DEV_ID:%d},{LOST:%0.2f%%}",broadcast_device_id,lost_pkt_cnt*100.0/(lost_pkt_cnt+rcv_pkt_cnt));
+				lost_pkt_cnt = 0;
+				rcv_pkt_cnt = 0;
+				//LOGFMTT("recv UDP(1200) from:%s: %d, reply:%s",inet_ntoa(sin.sin_addr),strlen(buf1),buf1);
+				sendto(socket_descriptor,buf1, strlen(buf1),0,(struct sockaddr *)&sin,sizeof(sin));  
+			}			
 		}
 		else
 		{
